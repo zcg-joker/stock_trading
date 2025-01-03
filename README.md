@@ -1,27 +1,25 @@
-# Stock Trading AI
+# Stock Trading AI Based RL
 
 基于LSTM预测和强化学习的股票交易AI系统。该系统结合了深度学习的预测能力和强化学习的决策能力，可以自动进行股票价格预测和交易决策。
+本项目是对[Stock Trading AI](https://github.com/MilleXi/stock_trading)的进一步优化，在这里也对原作者表示感谢~
 
-## 项目特点
+## 优化
 
-- 使用LSTM进行股票价格走势预测
-- 采用深度进化策略(Deep Evolution Strategy)进行交易决策
-- 完整的数据处理和特征工程
-- 可视化界面展示预测和交易结果
-- 支持批量处理多支股票
+- 设计了LSTM、BiLSTM、LSTM_with_attention三种模型，并进行了对比
+- 优化了结果可视化
+- 实现了多种强化学习算法，并进行了对比。实现了真正的基于强化学习的交易决策。
 
 ## 环境要求
 
 - Python 3.12+
 - Poetry包管理器
 - PyTorch (推荐CUDA支持)
-- Gradio (用于创建Web界面)
 
 ## 安装
 
 1. 克隆项目:
 ```bash
-git clone https://github.com/MilleXi/stock_trading.git
+git clone https://github.com/zcg-joker/stock_trading
 cd stock_trading
 ```
 
@@ -58,66 +56,9 @@ python stock_prediction_lstm.py
 ```bash
 python RLagent.py
 ```
-- 基于深度进化策略的交易代理
 - 自动学习交易策略
 - 交易结果分析
-- 结果保存在`results/transactions`目录
-
-### 4. 可视化界面
-```bash
-python gradio_interface.py
-```
-- 提供Web界面进行交互
-- 可视化预测结果和交易决策
-- 支持上传股票数据、参数调整和实时预测
-
-## 项目结构
-
-```
-stock_trading/
-├── data/                   # 存储股票数据
-├── results/                # 存储结果
-│   ├── predictions/        # 预测结果
-│   ├── transactions/       # 交易记录
-│   └── pic/               # 可视化图表
-├── process_stock_data.py   # 数据处理模块
-├── stock_prediction_lstm.py# LSTM预测模块
-├── RLagent.py             # 强化学习交易模块
-├── visualization.py        # 可视化工具
-├── gradio_interface.py     # Web界面
-└── README.md              # 项目文档
-```
-
-## 主要功能
-
-1. 数据处理
-   - 自动下载股票数据
-   - 计算技术指标
-   - 数据归一化和预处理
-
-2. 价格预测
-   - LSTM模型训练
-   - 预测准确率评估
-   - 预测结果可视化
-
-3. 交易决策
-   - 强化学习策略优化
-   - 自动交易信号生成
-   - 收益率分析
-
-4. 可视化界面
-   - 交互式操作
-   - 可自由上传数据
-   - 可自由调整参数并训练
-   - 预测展示
-   - 交易结果分析
-   - 提供下载Agent交易记录
-
-## 备注
-
-- 项目使用Poetry进行依赖管理
-- 如果遇到网络问题，可能需要配置代理来下载股票数据
-- 建议使用GPU进行模型训练以提高性能
+- 结果保存在`results/rlresults`目录
 
 ## 联系方式
 
